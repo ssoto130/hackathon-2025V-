@@ -176,4 +176,5 @@ Write-Host "Wait ~2 minutes for deployment to complete." -ForegroundColor Yellow
 Write-Host ""
 
 Read-Host "Press Enter to open your site"
-Start-Process "https://ssoto130.github.io/hackathon-2025V-/"
+$finalUrl = "https://ssoto130.github.io/hackathon-2025V-/"
+Start-Process $finalUrl
