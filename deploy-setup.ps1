@@ -158,7 +158,7 @@ if (Test-GitHubCLI) {
     Start-Process "https://github.com/$owner/$repo/actions"
     Write-Host "Please manually:" -ForegroundColor Yellow
     Write-Host "  1. Click 'Deploy to GitHub Pages'" -ForegroundColor Yellow
-    Write-Host "  2. Click 'Run workflow' → 'Run workflow'" -ForegroundColor Yellow
+    Write-Host "  2. Click 'Run workflow' then 'Run workflow'" -ForegroundColor Yellow
 }
 
 Write-Host "`n" -ForegroundColor Green
