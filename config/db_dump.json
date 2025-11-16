@@ -1,0 +1,78 @@
+{
+    "learn": {
+        "l1": {
+            "id": "l1",
+            "title": "example title",
+            "content": "the content the file contains"
+        }
+    },
+    "question": {
+        "q1": {
+            "id": "q1",
+            "name": "java print",
+            "difficulty": "Easy",
+            "details": "the question content",
+            "answer": "answer to the question",
+            "learn_id": "l1",
+            "files": [
+                "f1"
+            ],
+            "test_cases": [
+                "tc1"
+            ],
+            "hints": [
+                "h1"
+            ]
+        }
+    },
+    "question_set": {
+        "qs1": {
+            "id": "qs1",
+            "name": "week 1",
+            "questions": [
+                "q1"
+            ]
+        },
+        "qs2": {
+            "id": "qs2",
+            "name": "week 1",
+            "questions": [
+                "q1"
+            ]
+        }
+    },
+    "course": {
+        "c1": {
+            "id": "c1",
+            "name": "programming fundamentals",
+            "description": "learn the basics of java",
+            "question_sets": [
+                "qs1"
+            ]
+        }
+    },
+    "file_content": {
+        "f1": {
+            "id": "f1",
+            "file_name": "main.java",
+            "content": "base content of the file",
+            "editable": true,
+            "question_id": "q1"
+        }
+    },
+    "test_case": {
+        "tc1": {
+            "id": "tc1",
+            "input": "",
+            "expected_output": "hello world",
+            "question_id": "q1"
+        }
+    },
+    "hint": {
+        "h1": {
+            "id": "h1",
+            "text": "use java print",
+            "question_id": "q1"
+        }
+    }
+}

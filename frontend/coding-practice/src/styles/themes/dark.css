@@ -1,0 +1,23 @@
+[data-theme="dark"] {
+    --background: rgb(22, 22, 27);
+    --surface: rgb(24, 24, 29);
+    --overlay: rgb(33, 33, 40);
+    --muted: #6e6a86;
+    --border: rgb(45, 45, 50);
+    --text-color: #cad3f5;
+    --reverse-text: #1e2030;
+    --secondary-text: #b8c0e0;
+    --danger: #ed8796;
+    --warning: #eed49f;
+    --success: #8bd5ca;
+    --primary: #c6a0f6;
+    --secondary: #8aadf4;
+    --accent: #f5a97f;
+    --highlight: #6e738d;
+    --highlight-low: #5b6078;
+    --highlight-high: #939ab7;
+    /* big round for big widgets, small round for small widgets */
+    /* TODO: swap bigRound and smallRound to big-round and small-round to maintain consistency */
+    --bigRound: 10px;
+    --smallRound: 5px;
+}
