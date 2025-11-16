@@ -167,7 +167,7 @@ Write-Host "🎉 Setup Complete!" -ForegroundColor Green
 Write-Host "═══════════════════════════════════════════════" -ForegroundColor Green
 Write-Host ""
 Write-Host "Your site will be live at:" -ForegroundColor Cyan
-Write-Host "  https://ssoto130.github.io/$repo/" -ForegroundColor Green
+Write-Host "  https://ssoto130.github.io/hackathon-2025V-/" -ForegroundColor Green
 Write-Host ""
 Write-Host "Backend URL:" -ForegroundColor Cyan
 Write-Host "  $backendUrl" -ForegroundColor Green
@@ -176,5 +176,4 @@ Write-Host "Wait ~2 minutes for deployment to complete." -ForegroundColor Yellow
 Write-Host ""
 
 Read-Host "Press Enter to open your site"
-$siteUrl = "https://ssoto130.github.io/$repo/"
-Start-Process $siteUrl
+Start-Process "https://ssoto130.github.io/hackathon-2025V-/"
