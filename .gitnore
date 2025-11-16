@@ -1,0 +1,27 @@
+# node_modules
+/frontend/coding-practice/node_modules
+
+# build folders
+/frontend/coding-practice/.svelte-kit
+/frontend/coding-practice/build
+/frontend/coding-practice/dist
+
+# logs
+/frontend/coding-practice/npm-debug.log*
+/frontend/coding-practice/yarn-debug.log*
+/frontend/coding-practice/yarn-error.log*
+
+# os files
+.DS_Store
+Thumbs.db
+
+# editor settings
+.vscode
+.idea
+
+# ai agent prompts
+/GEMINI.md
+
+# backend
+__pycache__/
+venc/

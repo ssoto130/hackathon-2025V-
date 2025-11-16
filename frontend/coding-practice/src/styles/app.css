@@ -1,0 +1,617 @@
+@import 'tailwindcss';
+@import "tailwindcss/preflight";
+@import './themes/light.css';
+@import './themes/dark.css';
+@import './themes/rose-pine.css';
+@import './themes/rose-pine-light.css';
+@import './themes/dracula.css';
+@import './themes/monokai.css';
+@import './themes/nord.css';
+/* this file doesnt contain all css elements
+mostly ones that require global styles to work such as dropdown and markdown
+otherwise page specific styles will stay in their page */
+
+
+
+/* default html used for each element
+if a element is unstyled blame tailwind it removed all the styles and i tried for hours to fix it but it never worked
+so you have to make each of the defaults yourself, im ranting becuase i have been in this file for so long*/
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    scrollbar-gutter: stable;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* scrollbar styles */
+/* firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+input {
+    background-color: var(--overlay);
+    border-radius: var(--smallRound);
+    border: 1px solid var(--border);
+    padding: 3px 5px;
+}
+input:focus
+input:focus-visible {
+    outline: none; 
+    border: 1px solid var(--primary);
+}
+
+/* chrome safari edge */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+.hint-text {
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.panel {
+    background-color: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--bigRound);
+    overflow: hidden;
+    flex: 1;
+}
+
+.markdown {
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+}
+
+.markdown h1 {
+    padding: 15px 4px;
+    color: var(--primary);
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+.markdown h2 {
+    padding: 10px 2px;
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.markdown h3 {
+  padding: 10px 4px;
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  padding: 10px 4px;
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.markdown p {
+    color: var(--text-color);
+    padding: 8px 0px;
+}
+
+.markdown ul {
+    padding: 10px 0px;
+    list-style-type: disc;
+    padding-left: 1.5em;
+}
+
+.markdown ol {
+    padding: 10px 0px;
+    font-size: 16px;
+    list-style-type: decimal;
+    padding-left: 1.5em;
+}
+
+.markdown li::marker {
+  color: var(--muted);
+}
+
+.markdown strong {
+    font-weight: 700;
+    color: var(--danger);
+    font-style: normal;
+}
+
+.markdown em i {
+    font-style: italic;
+}
+
+.markdown blockquote {
+  margin: 1em 25px;
+  padding: 0.5em 10px;
+  border-left: 3px solid var(--muted);
+}
+
+.markdown hr {
+    width: 87%;
+    border: none;
+    margin: 2em auto;
+    height: 3px;
+    background-color: var(--muted);
+    border-radius: 3px;
+}
+
+.markdown a {
+  color: var(--accent);
+  text-decoration: underline;
+  transition: 0.15s;
+}
+
+.markdown a:hover {
+  filter: brightness(1.15);
+}
+
+.markdown a:visited {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.markdown-code-block {
+    padding: 10px 0px;
+}
+
+/* the drop down menu styles */
+.select-trigger {
+  @apply flex items-center justify-between text-left;
+  /* background-color: var(--surface); */
+  border-color: var(--border);
+  color: var(--text-color);
+}
+
+.select-content {
+    @apply p-1 border rounded-md shadow-lg;
+    background-color: var(--surface);
+    border-color: var(--border);
+    min-width: var(--bits-select-anchor-width);
+}
+
+.select-item {
+    @apply h-9 px-3 rounded-md flex items-center cursor-default;
+    color: var(--text-color);
+}
+
+.select-item[data-highlighted] {
+    background-color: var(--overlay);
+}
+
+.select-item[data-disabled] {
+    color: var(--muted);
+}
+
+.select-item[data-selected] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* tab styles */
+.tabs-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.tabs-list {
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+    background-color: var(--overlay);
+}
+
+.tabs-trigger {
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border: none;
+    color: var(--muted);
+    font-weight: 400;
+    position: relative;
+}
+
+.tabs-trigger[data-state='active'] {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* seperator lines */
+.tabs-trigger + .tabs-trigger::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1rem; 
+    background-color: var(--border);
+}
+
+/* code editor */
+
+.stretchy-editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+/* styled button styles */
+.styled-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border: none;
+    border-radius: var(--smallRound);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: filter 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    color: var(--text-color);
+    background-color: var(--overlay);
+}
+
+.styled-button:hover {
+    filter: brightness(1.15);
+}
+.styled-button:active {
+    filter: brightness(0.9);
+}
+
+.styled-button[data-variant="secondary"] {
+    background-color: var(--secondary);
+    color: var(--reverse-text);
+}
+
+.styled-button[data-variant="danger"]:hover {
+    background-color: var(--danger);
+    color: var(--reverse-text);
+}
+.styled-button[data-variant="danger"]:active {
+    background-color: var(--danger);
+    color: var(--reverse-text); 
+}
+
+.styled-button[data-variant="warning"]:hover {
+    background-color: var(--warning);
+    color: var(--reverse-text);
+}
+
+.styled-button[data-variant="primary"]:hover {
+    background-color: var(--primary);
+    color: var(--reverse-text);
+}
+.styled-button[data-variant="primary"]:active {
+    background-color: var(--primary);
+    color: var(--reverse-text);
+}
+
+.styled-button[data-variant="success"]:hover {
+    background-color: var(--success);
+    color: var(--reverse-text);
+}
+
+.styled-button[data-variant="transparent"] {
+    background-color: transparent;
+    color: var(--text-color);
+}
+.styled-button[data-variant="transparent"]:hover {
+    background-color: var(--overlay);
+    filter: none; 
+}
+.styled-button[data-variant="transparent"]:active {
+    filter: brightness(0.9);
+}
+
+.styled-button[data-variant="icon"] {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 3px 3px;
+}
+.styled-button[data-variant="icon"]:hover {
+    background-color: var(--overlay);
+    filter: none; 
+}
+.styled-button[data-variant="icon"]:active {
+    filter: brightness(0.9);
+}
+
+.styled-button[data-variant="loading"] {
+    position: relative;
+    background-color: var(--primary);
+    color: var(--reverse-text);
+    filter: none;
+    cursor: default;
+}
+.styled-button[data-variant="loading"]:hover {
+    filter: none;
+}
+.styled-button[data-variant="loading"]:active {
+    filter: none;
+}
+
+
+.styled-button .spinner {
+    position: absolute;
+}
+
+.styled-button[data-variant="disabled"] {
+    color: var(--reverse-text);
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: none; 
+}
+.styled-button[data-variant="disabled"]:hover {
+    filter: none; 
+}
+.styled-button[data-variant="disabled"]:active {
+    filter: none;
+}
+
+
+
+
+.left-drawer-content {
+    background-color: var(--surface);
+    display: flex;
+	flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    min-width: 16rem;
+    border-top-right-radius: var(--bigRound);
+    border-bottom-right-radius: var(--bigRound);
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.left-drawer-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /* TODO: fix the background color to be --background but darker maybe */
+    background-color: rgba(0, 0, 0, 0.3); 
+}
+
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3); 
+}
+.dialog-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: var(--bigRound);
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    min-width: 16rem;
+    min-height: 14rem;
+}
+
+.dialog-title {
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.dialog-description {
+    font-size: 16px;
+}
+
+.dialog-close-btn {
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* splitpanes */
+.splitpanes {
+    background-color: var(--background);
+}
+
+.splitpanes__splitter {
+  position: relative;
+  background-color: transparent;
+}
+.splitpanes__splitter:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transition: opacity 0.4s, background-color 0.4s;
+    opacity: 0;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+.splitpanes__splitter:hover:before {
+    opacity: 1;
+}
+
+.splitpanes--vertical > .splitpanes__splitter {
+    width: 12px;
+    cursor: col-resize;
+}
+.splitpanes--vertical > .splitpanes__splitter:before {
+  /* left: -10px;
+  right: -10px; */
+  width: 2px;
+  height: 30px;
+}
+
+.splitpanes--horizontal > .splitpanes__splitter {
+  height: 12px;
+  cursor: row-resize;
+}
+.splitpanes--horizontal > .splitpanes__splitter:before {
+  /* top: -10px;
+  bottom: -10px; */
+  width: 30px;
+  height: 2px;
+}
+
+/* for spinning icons */
+.spinner {
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.scroll-area-root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-area-viewport {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.scrollbar-vertical,
+.scrollbar-horizontal {
+    display: flex;
+    user-select: none;
+    touch-action: none;
+    padding: 2px;
+    transition: background 0.3s;
+}
+
+.scrollbar-vertical {
+    width: 10px;
+}
+
+.scrollbar-horizontal {
+    height: 10px;
+}
+
+.scrollbar-thumb {
+    flex: 1;
+    background: var(--border);
+    border-radius: 10px;
+}
+
+.scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+.scrollbar-corner {
+    background: transparent;
+}
+
+/* combobox styles */
+.combobox-input {
+    /* Updated: Use pr-10 or similar to make room for the icon */
+    @apply w-full h-9 px-3 pr-10 rounded-md border; 
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text-color);
+}
+.combobox-input:focus {
+	outline: none;
+	border-color: var(--primary);
+}
+
+.combobox-trigger {
+	@apply absolute end-3 top-1/2 size-6 -translate-y-1/2 touch-none;
+}
+
+.combobox-content {
+	@apply p-1 border rounded-md shadow-lg;
+	background-color: var(--surface);
+	border-color: var(--border);
+	min-width: var(--bits-combobox-anchor-width);
+	z-index: 10;
+}
+
+.combobox-item {
+	@apply h-9 px-3 rounded-md flex items-center cursor-default;
+	color: var(--text-color);
+}
+
+.combobox-item[data-highlighted] {
+	background-color: var(--overlay);
+}
+
+.combobox-item[data-disabled] {
+	color: var(--muted);
+}

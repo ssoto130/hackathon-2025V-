@@ -1,0 +1,112 @@
+{
+    "learn": {
+        "l1": {
+            "id": "l1",
+            "title": "example title",
+            "content": "the content the file contains"
+        }
+    },
+    "question": {
+        "q1": {
+            "id": "q1",
+            "name": "java print",
+            "difficulty": "Easy",
+            "details": "the question content",
+            "answer": "answer to the question",
+            "learn_id": "l1",
+            "files": [
+                {
+                    "id": "f1",
+                    "file_name": "main.java",
+                    "content": "base content of the file",
+                    "editable": true,
+                    "question_id": "q1"
+                }
+            ],
+            "test_cases": [
+                {
+                    "id": "tc1",
+                    "input": "",
+                    "expected_output": "hello world",
+                    "question_id": "q1"
+                }
+            ],
+            "hints": [
+                {
+                    "id": "h1",
+                    "text": "use java print",
+                    "question_id": "q1"
+                }
+            ]
+        },
+        "q2": {
+            "id": "q2",
+            "name": "java v2",
+            "difficulty": "Easy",
+            "details": "the question content",
+            "answer": "answer to the question",
+            "learn_id": "l1",
+            "files": [
+                {
+                    "id": "f2",
+                    "file_name": "main.java",
+                    "content": "base content of the file",
+                    "editable": true,
+                    "question_id": "q2"
+                }
+            ],
+            "test_cases": [
+                {
+                    "id": "tc2",
+                    "input": "",
+                    "expected_output": "hello world",
+                    "question_id": "q2"
+                }
+            ],
+            "hints": [
+                {
+                    "id": "h2",
+                    "text": "use java print",
+                    "question_id": "q2"
+                }
+            ]
+        }
+    },
+    "question_set": {
+        "qs1": {
+            "id": "qs1",
+            "name": "week 1",
+            "questions": [
+                "q1",
+                "q2"
+            ]
+        },
+        "qs2": {
+            "id": "qs2",
+            "name": "week 2",
+            "questions": [
+                "q1",
+                "q2"
+            ]
+        },
+        "qs3": {
+            "id": "qs3",
+            "name": "week 3",
+            "questions": [
+                "q1"
+            ]
+        }
+    },
+    "course": {
+        "c1": {
+            "id": "c1",
+            "name": "programming fundamentals",
+            "description": "learn the basics of java",
+            "question_sets": [
+                "qs1",
+                "qs2",
+                "qs3"
+            ]
+        }
+    }
+}

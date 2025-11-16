@@ -1,0 +1,22 @@
+[data-theme="rose-pine-light"] {
+    --background: #faf4ed; /*#211f20*/
+    --surface: #fffaf3;
+    --overlay: #f2e9e1;
+    --muted: #9893a5;
+    --border: #cecacd;
+    --text-color: #575279;
+    --reverse-text: #e0def4;
+    --secondary-text: #908caa;
+    --danger: #b4637a;
+    --warning: #ea9d34;
+    --success: #56949f;
+    --primary: #907aa9;
+    --secondary: #286983;
+    --accent: #d7827e;
+    --highlight: #dfdad9;
+    --highlight-low: #f4ede8;
+    --highlight-high: #524f67;
+    /* big round for big widgets, small round for small widgets */
+    --bigRound: 10px;
+    --smallRound: 5px;
+}

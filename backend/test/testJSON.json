@@ -1,0 +1,74 @@
+{
+    "learn": {
+        "learn_id": {
+            "learn_id": "learn_id",
+            "title": "example title",
+            "content": "the content the file contains"
+        }
+    },
+    "question": {
+        "question_id": {
+            "question_id": "question_id",
+            "question_difficulty": "Easy",
+            "question_name": "java print",
+            "question_details": "the question content",
+            "answer": "answer to the question",
+            "base_files": [
+                {
+                    "file_name": "main.java",
+                    "content": "base content of the file",
+                    "editable": true
+                }
+            ],
+            "hints": [
+                "use java print"
+            ],
+            "learn": "learn_id",
+            "test_cases": [
+                {
+                    "input": "",
+                    "expected_output": "hello world"
+                }
+            ]
+        }
+    },
+    "question_set": {
+        "question_set_id": {
+            "question_set_id": "question_set_id",
+            "name": "week 1",
+            "questionts": [
+                {
+                    "question_id": "question_id",
+                    "question_name": "java print",
+                    "question_difficulty": "Easy"
+                }
+            ]
+        }
+    },
+    "course": {
+        "course_id": {
+            "course_id": "course_id",
+            "course_name": "programming fundamentals",
+            "description": "learn the basics of java",
+            "question_sets": [
+                {
+                    "question_set_id": "question_set_id",
+                    "name": "week 1",
+                    "questionts": [
+                        {
+                            "question_id": "question_id",
+                            "question_name": "java print",
+                            "question_difficulty": "Easy"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "content_set": [
+        "course_id",
+        "question_set_id",
+        "question_id",
+        "learn_id"
+    ]
+}
